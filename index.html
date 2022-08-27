@@ -14,53 +14,80 @@
     <br>
     <br>
     <form id="radio-form">
-      <legend>What type of company you prefer to work for?</legend> 
-      <ul>
-        <li>
-          <label for="largeCorporations"> large corporations</label>
-          <input type="radio" id="large corporations" name="companySize" value="largeCorporations" checked>
+      <div class="row">
+        <div class="col-6">
+          <legend>What type of company you prefer to work for?</legend> 
+          <ul>
+            <li>
+              <label for="largeCorporations"> large corporations</label>
+              <input type="radio" id="largeCorporations" name="companySize" value="largeCorporations" checked>
+              </li>
+            <li>
+              <label for="startupCompanies">startup companies</label>
+              <input type="radio" id="startupCompanies" name="companySize" value="startupCompanies">
+            </li>
+          </ul> 
+        </div> 
+        <div class="col-6">
+          <legend>Which color do you prefer?</legend> 
+          <ul>
+            <li>
+              <label for="red">red</label>
+              <input type="radio" id="red" name="color" value="red" checked>
+            </li>
+            <li>
+              <label for="green">green</label>
+              <input type="radio" id="green" name="color" value="green">
+            </li>
+          </ul>
+        </div>
+        <div class="col-6">
+          <legend>Who is your favorite super hero?</legend>
+          <ul>
+            <li>
+              <label for="flash">Flash</label>
+              <input  type="radio" id="flash" name="superHero" value="flash" checked>
+            </li>
+            <li>
+              <label for="greenLantern">Green Lantern</label>
+              <input type="radio" id="greenLantern" name="superHero" value="greenLantern">
+            </li>
+          </ul>
+        </div>
+        <div class="col-6">
+          <legend>Do you like working with data?</legend>
+          <ul>
+            <li>
+              <label for="yes">yes</label>
+              <input type="radio" id="yes" name="data" value="yes" checked>
+            </li>
+            <li>
+              <label for="no">no</label>
+              <input type="radio" id="no" name="data" value="no">
+            </li>
+          </ul>
+        </div>
+        <legend>Are you a Star Wars fan?</legend>
+        <ul>
+          <li>
+            <label for="yes">yes</label>
+            <input type="radio" id="yes" name="painting" value="yes" checked>
           </li>
-        <li>
-          <label for="startupCompanies">startup companies</label>
-          <input type="radio" id="startupCompanies" name="companySize" value="startupCompanies">
-        </li>
-      </ul>  
-      <label for="favoriteColor">What is your favorite color?</label>
-      <input id="favoriteColor" type="text" name="favoriteColor">
-      <br>
-      <br>
-      <label for="superHero">Who is your favorite super hero?</label>
-      <input id="superHero" type="text" name="superHero">
-      <br>
-      <br>
-      <legend>Do you like working with data?</legend>
-      <ul>
-        <li>
-          <label for="yes">yes</label>
-          <input type="radio" id="yes" name="data" value="yes" checked>
-        </li>
-        <li>
-          <label for="no">no</label>
-          <input type="radio" id="no" name="data" value="no">
-        </li>
-      </ul>
-      <legend>Are you a Star Wars fan?</legend>
-      <ul>
-        <li>
-          <label for="yes">yes</label>
-          <input type="radio" id="yes" name="painting" value="yes" checked>
-        </li>
-        <li>
-          <label for="no">no</label>
-          <input type="radio" id="yes" name="painting" value="no">
-        </li>
-      </ul>
-      <br>
-      <br>
+          <li>
+            <label for="no">no</label>
+            <input type="radio" id="yes" name="painting" value="no">
+          </li>
+        </ul>
+      </div>
       <button type="submit">Submit your answers and see your coding language suggestion!</button>
     </form>
     <br>
     <button type="button" class="hidden" id="reset">Reset</button>
-    </div>
+    <br>
+    <br>
+  </div>
+    </div id="codingLanguage" class="hidden">
+      <h4>Coding Language Suggestion</h4>
+      <p>It sounds like you should start learning<span id="language">_________</span>first!</p>
 </body>
 </html>
