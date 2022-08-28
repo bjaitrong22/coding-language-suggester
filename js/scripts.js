@@ -8,7 +8,7 @@ function getAndEvaluateInputs() {
   const color = document.querySelector("input[name='color']:checked").value;
   const superHero = document.querySelector("input[name='superHero']:checked").value;
   const data = document.querySelector("input[name='data']:checked").value;
-  const starWarsFan = document.querySelector("input[name='starWarsFan']:checked").vlaue; 
+  const starWarsFan = document.querySelector("input[name='starWarsFan']:checked").value; 
 
   if(companySize === "largeCorporations") {
     document.querySelector("span#language").innerText = "C#";
@@ -38,14 +38,30 @@ function handleRadio(event) {
 
 window.addEventListener("load", function() {
   document.getElementById("radio-form").addEventListener("submit", handleRadio);
-  let resetBtn = document.querySelector("button#reset");
-  let codeLanguage = document.querySelector("div#codeLanguage");
+  let form = document.querySelector("form");
+  let resetBtn = document.getElementById("reset");
+  let codingLanguage = document.getElementById("codingLanguage");
   
   //Remove class attribute to show coding language suggestion
 
-  document.querySelector("div#codingLanguage").removeAttribute("class");
+  codingLanguage.removeAttribute("class");
+ 
+  //Remove class attribute to show the reset button
 
-  
+  form.addEventListener("submit", function() {
+    resetBtn.removeAttribute("class");
+  });
 
+  //Setting class attribute to "hidden" to hide code language suggestion and
+  //setting input values to null to clear previous answers.
+
+  resetBtn.addEventListener("click", function() {
+    codingLanguage.setAttribute("class","hidden");
+    document.querySelector("input[name='companySize']:checked").value = null;
+    document.querySelector("input[name='color']:checked").value = null;
+    document.querySelector("input[name='superHero']:checked").value = null;
+    document.querySelector("input[name='data']:checked").value = null;
+    document.querySelector("input[name='starWarsFan']:checked").value = null; 
+  });
 
 });
