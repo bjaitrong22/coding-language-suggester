@@ -30,8 +30,10 @@ function getAndEvaluateInputs() {
 //to the send the information to. The function also calls the getAndEvaluateInputs() function.
 
 function handleRadio(event) {
-  event.preventDefault();
   getAndEvaluateInputs();
+  //Remove class attribute to show coding language suggestion
+  codingLanguage.removeAttribute("class");
+  event.preventDefault();
 }
 
 //Event Listener use to guarantee that the HTML is loaded before befor running JavaScript
@@ -42,10 +44,6 @@ window.addEventListener("load", function() {
   let resetBtn = document.getElementById("reset");
   let codingLanguage = document.getElementById("codingLanguage");
   
-  //Remove class attribute to show coding language suggestion
-
-  codingLanguage.removeAttribute("class");
- 
   //Remove class attribute to show the reset button
 
   form.addEventListener("submit", function() {
@@ -57,11 +55,31 @@ window.addEventListener("load", function() {
 
   resetBtn.addEventListener("click", function() {
     codingLanguage.setAttribute("class","hidden");
-    document.querySelector("input[name='companySize']:checked").value = null;
-    document.querySelector("input[name='color']:checked").value = null;
-    document.querySelector("input[name='superHero']:checked").value = null;
-    document.querySelector("input[name='data']:checked").value = null;
-    document.querySelector("input[name='starWarsFan']:checked").value = null; 
+
+    let companySize = document.querySelector("input[name='companySize']:checked").value;
+    console.log("value =" + companySize);
+
+    if(companySize !== "largeCorporations") {
+      console.log("in if statement");
+      companySize = document.querySelectorAll("input[name='companySize']:checked").value = "largeCorporations";
+      console.log("Value inside if = " + companySize)
+    }
+
+    /*if (color !== "red") {
+      document.querySelector("span#language").innerText = "Ruby";
+    }
+
+    if (superHero !== "flash") {
+      document.querySelector("span#language").innerText = "Swift";
+    }
+
+    if (data !== "yes") {
+      document.querySelector("span#language").innerText = "Python";
+    }
+
+    if (starWarsFan !== "yes") {
+      document.querySelector("span#language").innerText = "Java";
+    }*/
   });
 
 });
