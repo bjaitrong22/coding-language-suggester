@@ -23,14 +23,16 @@ function getAndEvaluateInputs() {
   } else {
     document.querySelector("span#language").innerText = "JavaScript";
   }
+
 }
 
-//handlRadio(event) function prevent the default behavior of the 'submit' event which is
-//to try to send the input to a server and refresh the page. In our case there is no server 
+//handlRadio(event) function prevents the default behavior of the 'submit' event which is
+//sending the input to a server and refreshing the page. In our case there is no server 
 //to the send the information to. The function also calls the getAndEvaluateInputs() function.
 
 function handleRadio(event) {
   getAndEvaluateInputs();
+
   //Remove class attribute to show coding language suggestion
   codingLanguage.removeAttribute("class");
   event.preventDefault();
@@ -41,12 +43,16 @@ function handleRadio(event) {
 window.addEventListener("load", function() {
   document.getElementById("radio-form").addEventListener("submit", handleRadio);
   let form = document.querySelector("form");
-  let resetBtn = document.getElementById("reset");
+  let submitBtn = document.getElementById("submitBtn");
+  let resetBtn = document.getElementById("resetBtn");
   let codingLanguage = document.getElementById("codingLanguage");
+
+  submitBtn.removeAttribute("hidden");
   
   //Remove class attribute to show the reset button
 
   form.addEventListener("submit", function() {
+    submitBtn.setAttribute("hidden","hidden");
     resetBtn.removeAttribute("class");
   });
 
@@ -54,32 +60,9 @@ window.addEventListener("load", function() {
   //setting input values to null to clear previous answers.
 
   resetBtn.addEventListener("click", function() {
+    submitBtn.removeAttribute("hidden");
     codingLanguage.setAttribute("class","hidden");
-
-    let companySize = document.querySelector("input[name='companySize']:checked").value;
-    console.log("value =" + companySize);
-
-    if(companySize !== "largeCorporations") {
-      console.log("in if statement");
-      companySize = document.querySelectorAll("input[name='companySize']:checked").value = "largeCorporations";
-      console.log("Value inside if = " + companySize)
-    }
-
-    /*if (color !== "red") {
-      document.querySelector("span#language").innerText = "Ruby";
-    }
-
-    if (superHero !== "flash") {
-      document.querySelector("span#language").innerText = "Swift";
-    }
-
-    if (data !== "yes") {
-      document.querySelector("span#language").innerText = "Python";
-    }
-
-    if (starWarsFan !== "yes") {
-      document.querySelector("span#language").innerText = "Java";
-    }*/
+    resetBtn.setAttribute("class","hidden")
   });
 
 });
