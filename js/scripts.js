@@ -18,7 +18,7 @@ function getAndEvaluateInputs() {
     document.querySelector("span#language").innerText = "Swift";
   } else if (data === "yes") {
     document.querySelector("span#language").innerText = "Python";
-  } else if (starWarsFan == "yes") {
+  } else if (starWarsFan === "yes") {
     document.querySelector("span#language").innerText = "Java";
   } else {
     document.querySelector("span#language").innerText = "JavaScript";
@@ -49,7 +49,9 @@ window.addEventListener("load", function() {
 
   submitBtn.removeAttribute("hidden");
   
-  //Remove class attribute to show the reset button
+  //Remove class attribute to show the reset button and set attribute for
+  //submit button to hide the submit option. This will force the user to 
+  //click on the reset button to set the answer to the default answers.
 
   form.addEventListener("submit", function() {
     submitBtn.setAttribute("hidden","hidden");
