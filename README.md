@@ -6,6 +6,7 @@ coding language suggester.
   * CSS
   * Bootstrap
   * JavaScript
+  * Web APIs
 # Description
 coding-language-suggester determines the first coding language a user should learn based on their answers to a 5 question survey.
 
